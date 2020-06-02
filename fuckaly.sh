@@ -67,6 +67,16 @@ rm -rf /etc/motd
 wget -O /etc/motd -N --no-check-certificate https://raw.githubusercontent.com/4D4937/aliyun-service-uninstall/master/motd
 cd -
 rm -rf Uninstall-aliyun-service
+
+kill -9 $(pidof AliYunDun)
+kill -9 $(pidof AliYunDunUpdate)
+find . -name 'agentwatch*' -type d -exec rm -rf {} \; && find . -name 'agentwatch*' -type f -exec rm -rf {} \;
+find . -name 'aliyun*' -type d -exec rm -rf {} \;
+find . -name 'aliyun*' -type f -exec rm -rf {} \;
+find . -name 'aegis*' -type f -exec rm -rf {} \;
+find . -name 'aegis*' -type d -exec rm -rf {} \;
+rm -fr /usr/sbin/aliyun-service /usr/sbin/aliyun_installer
+find /etc/systemd/system/ -name 'cloud-*' | xargs rm -rf
 clear
 
 printf "
