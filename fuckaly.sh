@@ -20,12 +20,6 @@ printf "
 #######################################################################
 "
 
-echo ""
-echo "Press any key to continue!"
-char=`get_char`
-
-clear
-
 # Check if user is root
 [ $(id -u) != "0" ] && { echo "${CFAILURE}Error: You must be root to run this script${CEND}"; exit 1; }
 
